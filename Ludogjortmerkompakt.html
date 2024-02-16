@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="ludo.css">
+</head>
+
+<body>
+    <div id="game" class="game">
+    </div>
+
+    <script>
+        addBoard();
+
+        function addBoard() {
+            addColor('box', 'house green', 'green', '');
+            addColor('box', 'house yellow', 'yellow', 'right: 0');
+            addColor('box', 'house red', 'red', 'bottom: 0');
+            addColor('box', 'house blue', 'blue', 'bottom: 0;right: 0');
+            addCell('home', 'cells', 'cells g-start', 'cells', 'cells', 'cells', 'cells', 'top: 40%;', 'top: 40%;left:6.66%;', 'top: 40%;left:13.32%;', 'top: 40%;left:19.98%;', 'top: 40%;left:26.64%;', 'top: 40%;left:33.3%;' );
+            addCell('', 'cells', 'cells', 'cells safe', 'cells', 'cells', 'cells', 'top: 0;left:40%;', 'top: 6.66%;left:40%;', 'top: 13.32%;left:40%;', 'top: 19.98%;left:40%;', 'top: 26.64%;left:40%;', 'top: 33.3%;left:40%;');
+            addCell('', 'cells', 'cells yellow', 'cells yellow', 'cells yellow','cells yellow', 'cells yellow', 'top: 0;left:46.66%;','top: 6.66%;left:46.66%;', 'top: 13.32%;left:46.66%;', 'top: 19.98%;left:46.66%;', 'top: 26.64%;left:46.66%;', 'top: 33.3%;left:46.66%;');
+            addCell('', 'cells', 'cells y-start', 'cells', 'cells','cells', 'cells', 'top: 0;left:53.32%;','top: 6.66%;left:53.32%;', 'top: 13.32%;left:53.32%;', 'top: 19.98%;left:53.32%;', 'top: 26.64%;left:53.32%;', 'top: 33.3%;left:53.32%;');
+            addCell('', 'cells', 'cells', 'cells', 'cells safe','cells', 'cells', 'top: 40%; right: 33.3%','top: 40%;right:26.64%;', 'top: 40%;right:19.98%;', 'top: 40%;right:13.32%;', 'top: 40%;right:6.66%;', 'top: 40%;right:0;');
+            addCell('', 'cells blue', 'cells blue', 'cells blue', 'cells blue','cells blue', 'cells', 'top: 46.66%; right: 33.3%','top: 46.66%;right:26.64%;', 'top: 46.66%;right:19.98%;', 'top: 46.66%;right:13.32%;', 'top: 46.66%;right:6.66%;', 'top: 46.66%;right:0;');
+            addCell('', 'cells', 'cells', 'cells', 'cells','cells b-start', 'cells', 'top: 53.32%; right: 33.3%','top: 53.32%;right:26.64%;', 'top: 53.32%;right:19.98%;', 'top: 53.32%;right:13.32%;', 'top: 53.32%;right:6.66%;', 'top: 53.32%;right:0;');
+            addCell('', 'cells', 'cells', 'cells safe', 'cells','cells', 'cells', 'bottom: 0;left:53.32%;','bottom: 6.66%;left:53.32%;', 'bottom: 13.32%;left:53.32%;', 'bottom: 19.98%;left:53.32%;', 'bottom: 26.64%;left:53.32%;', 'bottom: 33.3%;left:53.32%;');
+            addCell('', 'cells', 'cells red', 'cells red', 'cells red','cells red', 'cells red', 'bottom: 0;left:46.66%;','bottom: 6.66%;left:46.66%;', 'bottom: 13.32%;left:46.66%;', 'bottom: 19.98%;left:46.66%;', 'bottom: 26.64%;left:46.66%;', 'bottom: 33.3%;left:46.66%;');
+            addCell('', 'cells', 'cells r-start', 'cells', 'cells','cells', 'cells', 'bottom: 0;left:40%;','bottom: 6.66%;left:40%;', 'bottom: 13.32%;left:40%;', 'bottom: 19.98%;left:40%;', 'bottom: 26.64%;left:40%;', 'bottom: 33.3%;left:40%;');
+            addCell('', 'cells', 'cells', 'cells', 'cells safe','cells', 'cells', 'top: 53.32%; left: 33.3%','top: 53.32%;left:26.64%;', 'top: 53.32%;left:19.98%;', 'top: 53.32%;left:13.32%;', 'top: 53.32%;left:6.66%;', 'top: 53.32%;left:0;');
+            addCell('', 'cells green', 'cells green', 'cells green', 'cells green','cells green', 'cells', 'top: 46.66%;left: 33.3%','top: 46.66%;left:26.64%;', 'top: 46.66%;left:19.98%;', 'top: 46.66%;left:13.32%;', 'top: 46.66%;left:6.66%;', 'top: 46.66%;left:0;');
+        }
+
+        function addColor(text1, text2, color, pos) {
+            document.getElementById('game').innerHTML += /*HTML*/`
+            <div class="${text2}" style="${pos}">
+                <div class="${text1}">
+                    <div class="square square-one ${color}"></div>
+                    <div class="square square-two ${color}"></div>
+                    <div class="square square-three ${color}"></div>
+                    <div class="square square-four ${color}"></div>
+                </div>
+            </div>
+            `;
+        }
+
+        function addCell(text1, text2, text3, text4, text5, text6,
+         text7, pos1, pos2, pos3, pos4, pos5, pos6) {
+            document.getElementById('game').innerHTML += /*HTML*/`
+            <div class="${text1}"></div>
+            <div class="${text2}" style="${pos1}"></div>
+            <div class="${text3}" style="${pos2}"></div>
+            <div class="${text4}" style="${pos3}"></div>
+            <div class="${text5}" style="${pos4}"></div>
+            <div class="${text6}" style="${pos5}"></div>
+            <div class="${text7}" style="${pos6}"></div>
+            `;
+        }
+
+    </script>
+</body>
+
+</html>

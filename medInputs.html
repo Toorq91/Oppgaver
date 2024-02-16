@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Per har betalt: <br />
+    <input id="perPaid" type="number" /><br />
+    Pål har betalt: <br />
+    <input id="pålPaid" type="number" /><br />
+    Espen har betalt: <br />
+    <input id="espenPaid" type="number" /><br />
+    <button onclick="calculateAmounts()">Beregne</button>
+
+
+    <div id="app"></div>
+    <script>
+        function calculateAmounts() {
+            let paidAmountPer = document.getElementById('perPaid').valueAsNumber || 0; 
+            let paidAmountPål = document.getElementById('pålPaid').valueAsNumber || 0 ; 
+            let paidAmountEspen = document.getElementById('espenPaid').valueAsNumber || 0; 
+
+            let totalPaidAmount = paidAmountEspen + paidAmountPer + paidAmountPål;
+            let costPerPerson = totalPaidAmount / 3;
+
+            let balancePer = paidAmountPer - costPerPerson;
+            let balancePål = paidAmountPål - costPerPerson;
+            let balanceEspen = paidAmountEspen - costPerPerson;
+
+            document.getElementById('app').innerHTML = /*HTML*/`
+                Totalkostnad: ${totalPaidAmount} <br/>
+                Kostnad per person: ${costPerPerson} <br/>
+                Per - til gode/skylder : ${balancePer} <br/>
+                Pål - til gode/skylder : ${balancePål} <br/>
+                Espen - til gode/skylder : ${balanceEspen} <br/>                
+            `;
+        }
+    </script>
+
+</body>
+
+</html>

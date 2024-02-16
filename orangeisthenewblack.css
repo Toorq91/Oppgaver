@@ -1,0 +1,38 @@
+#board {
+    display: grid;
+    grid-template-columns: repeat(16, 100px);
+    grid-template-rows: repeat(16, 100px);
+}
+
+.orangeSquare {
+    background-color: orange;
+}
+
+.blackSquare {
+    background-color: black;
+}
+
+.blueSquare {
+    background-color: blue;
+}
+
+.redSquare {
+    background-color: red;
+}
+
+.greenSquare {
+    background-color: green;
+}
+
+.pinkSquare {
+    background-color: pink;
+}
+
+.aquamarineSquare {
+    background-color: aquamarine;
+}
+
+.whiteSquare {
+    background-color: rgb(252, 252, 252);
+}
+

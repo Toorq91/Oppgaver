@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #board {
+        display: grid;
+        grid-template-columns: repeat(2, 200px);
+        grid-template-rows: repeat(2, 200px);
+    }
+
+    #board>div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid gray;
+        background-color: darkgray;
+    }
+
+    img {
+        width: 100%;
+    }
+
+    div.test1 {
+        background-color: aquamarine;
+    }
+
+    div.test2 {
+        background-color: yellow;
+    }
+
+    .green {
+        background-color: green;
+    }
+
+    .red {
+        background-color: red;
+    }
+
+    .blue {
+        background-color: blue;
+    }
+
+    .yellow {
+        background-color: yellow;
+    }
+</style>
+
+<body>
+    <div id="board">
+        <div onclick="show1()"></div>
+        <div onclick="show2()"></div>
+        <div onclick="show3()"></div>
+        <div onclick="show4()"></div>
+
+        <button class="green">Green</button><br>
+        <button class="red">Red</button><br>
+        <button class="blue">Blue</button><br>
+        <button class="yellow">Yellow</button><br>
+    </div>
+    <div>
+        <h1>Hei på deg</h1>
+        <ol>
+            <li>
+                <a>
+                    oauehfuserghgr
+                    aepijhrgu0g
+                    .eoughrog
+                    oauehfuserghgr
+                    aepijhrgu0g
+                    .eoughrog
+                    oauehfuserghgr
+                    aepijhrgu0g
+                    .eoughrog
+                    oauehfuserghgr
+                    aepijhrgu0g
+                    .eoughrog
+                </a>
+            </li>
+            <li>
+                <a>
+                    aeoguhg9uhrsgn
+                    aeoguhg9uhrsgn
+                    aeoguhg9uhrsgn
+                    aeoguhg9uhrsgn
+                </a>
+            </li>
+            <li>
+                <div class="test1"> testing 1</div>
+            <li>
+                <div class="test2"> testing 2</div>
+            </li>
+            </li>
+        </ol>
+    </div>
+    <script>
+        function show1() {
+            document.getElementById('board').innerHTML`
+            <div onclick="show1()"><img src="img/dog.jpg"/></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            `
+        }
+
+        function show2() {
+            document.getElementById('board').innerHTML`
+            <div></div>
+            <div><img src="img/tiger.jpg"/></div>
+            <div></div>
+            <div></div>
+            `
+        }
+
+        function show3() {
+            document.getElementById('board').innerHTML`
+            <div></div>
+            <div></div>
+            <div><img src="img/frog.jpg"/></div>
+            <div></div>
+            `
+        }
+
+        function show4() {
+            document.getElementById('board').innerHTML`
+            <div></div>
+            <div></div>
+            <div></div>
+            <div><img src="img/chicken.jpg"/></div>
+            `
+        }
+    </script>
+</body>
+
+</html>

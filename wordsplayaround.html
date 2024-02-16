@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button.det {
+            color: green;
+            font-size: 50px;
+        }
+        button.kan {
+            color: black;
+            font-size: 50px;
+        }
+        button.man {
+            color: red;
+            font-size: 50px;
+        }
+        button.si {
+            color: blue;
+            font-size: 50px;
+        }
+        button.jo {
+            color: yellow;
+            font-size: 50px;
+        }
+        button.hvor {
+            color: green;
+            font-size: 50px;
+        }
+        button.han {
+            color: gray;
+            font-size: 50px;
+        }
+        button.hva {
+            color: purple;
+            font-size: 50px;
+        }
+        button.hvem {
+            color: orange;
+            font-size: 50px;
+        }
+        button.hvorfor {
+            color: aquamarine;
+            font-size: 50px;
+        }
+        button.de {
+            color: red;
+            font-size: 50px;
+        }
+        button.hun {
+            color: blue;
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <a class="button" href="https://www.vg.no/"><button>VG</button></a><br>
+    <button class="det" onclick="addText('green', 400, 'det')">Det</button><br>
+    <button class="kan" onclick="addText('black', 400, 'kan')">kan</button><br>
+    <button class="man" onclick="addText('red', 400, 'man')">man</button><br>
+    <button class="si" onclick="addText('blue', 400, 'si')">si</button><br>
+    <button class="jo" onclick="addText('yellow', 400, 'jo')">jo</button><br>
+    <button class="hvor" onclick="addText('green', 400, 'hvor')">hvor</button><br>
+    <button class="han" onclick="addText('gray', 400, 'han')">han</button><br>
+    <button class="hva" onclick="addText('purple', 400, 'hva')">hva</button><br>
+    <button class="hvem" onclick="addText('orange', 400, 'hvem')">hvem</button><br>
+    <button class="hvorfor" onclick="addText('aquamarine', 400, 'hvorfor')">hvorfor</button><br>
+    <button class="de" onclick="addText('red', 400, 'de')">de</button><br>
+    <button class="hun" onclick="addText('blue', 400, 'hun')">hun</button>
+
+    <div id="app"></div>
+    <script>
+
+        function addText(color, fontSize, word) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+            <span style="color: ${color}; font-size: ${fontSize}%;">
+                ${word}
+                </span>
+                `;
+        }
+    </script>
+</body>
+
+</html>

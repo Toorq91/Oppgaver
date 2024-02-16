@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="sjakkbrett.css">
+</head>
+
+<body>
+    <div id="board"></div>
+<script>
+    
+    drawChessBoard();
+
+    function drawChessBoard() {
+        drawLine1();
+        drawLine2();
+        drawLine1();
+        drawLine2();
+        drawLine1();
+        drawLine2();
+        drawLine1();
+        drawLine2();
+    }
+
+    function drawLine1() {
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+    }
+
+    function drawLine2() {
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+        drawDarkSquare();
+        drawLightSquare();
+    }
+
+    function drawLightSquare() {
+        document.getElementById('board').innerHTML += /*HTML*/`<div class="lightSquare"></div>`;
+    }
+
+    function drawDarkSquare() {
+        document.getElementById('board').innerHTML += /*HTML*/`<div class="darkSquare"></div>`;
+    }
+
+</script>
+</div>
+</body>
+
+</html>

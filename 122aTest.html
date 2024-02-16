@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #board {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+        }
+
+        #board>div {
+            border: 1px solid lightblue;
+        }
+
+        .selected {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <br />&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;
+    <button onclick="moveSquareUp()">⯅ flytt opp</button></br></br>
+    <button onclick="moveSquareLeft()">⯇ flytt venstre</button>
+    <button onclick="moveSquareRight()">⯈ flytt høyre</button>
+    </br></br>&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;&emsp13;
+    <button onclick="moveSquareDown()">⯆ flytt ned</button><br /><br />
+
+    <div id="board">
+    </div>
+    <script>
+        let selectedSquareIndex = 27;
+        const size = 64;
+
+        showBoard();
+
+        function showBoard() {
+            const divTag = '<div></div>';
+            const part1 = repeatText(divTag, selectedSquareIndex);
+            const part2 = '<div class="selected"></div>';
+            const lengthPart3 = size - (selectedSquareIndex + 1);
+            const part3 = repeatText(divTag, lengthPart3);
+
+            document.getElementById('board').innerHTML += part1 + part2 + part3;
+        }
+
+        function repeatText(text, count) {
+            return ''.padEnd(text.length * count, text)
+        }
+
+        function moveSquareUp() {
+            selectedSquareIndex -= 8;
+            showBoard();
+        }
+
+        function moveSquareLeft() {
+            selectedSquareIndex -= 1;
+            showBoard();
+        }
+
+        function moveSquareRight() {
+            selectedSquareIndex += 1;
+            showBoard();
+        }
+
+        function moveSquareDown() {
+            selectedSquareIndex += 8;
+            showBoard();
+        }
+    </script>
+</body>
+
+</html>

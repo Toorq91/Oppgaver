@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #flagg {
+            display: grid;
+            grid-template-columns: repeat(22, 20px);
+            grid-template-rows: repeat(16, 20px);
+        }
+
+        .red {
+            background-color: #BA0C2F;
+        }
+
+        .Blue {
+            background-color: #00205B;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="flagg">
+    </div>
+
+    <script>
+        drawFlag();
+        
+        function drawFlag(){
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawWhiteFlag();
+            drawBlueFlag();
+            drawBlueFlag();
+            drawWhiteFlag();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+            drawDefaulFlagRow();
+        }
+
+        // The actual flag shown
+
+        function drawDefaulFlagRow(){
+             draw6RedSquares();
+             drawWhiteSquare();
+             draw2BlueSquares();
+             drawWhiteSquare();
+             draw6RedSquares();
+             draw6RedSquares();
+        }
+
+        function drawWhiteFlag(){
+            draw6WhiteSquares();
+            drawWhiteSquare();
+            draw2BlueSquares();
+            draw6WhiteSquares();
+            draw6WhiteSquares();
+            drawWhiteSquare();
+        }
+
+        function drawBlueFlag(){
+            draw6BlueSquares();
+            draw6BlueSquares();
+            draw6BlueSquares();
+            draw2BlueSquares();
+            draw2BlueSquares();
+        }
+
+
+        //Function for the flag format
+
+        function draw6BlueSquares(){
+            draw2BlueSquares();
+            draw2BlueSquares();
+            draw2BlueSquares();
+        }
+
+        function draw2BlueSquares(){
+            drawBlueSquare();
+            drawBlueSquare();
+        }
+
+        function draw6RedSquares(){
+            draw2RedSquares();
+            draw2RedSquares();
+            draw2RedSquares();
+        }
+
+        function draw2RedSquares(){
+            drawRedSquare();
+            drawRedSquare();
+        }
+
+        function draw6WhiteSquares(){
+            draw2WhiteSquares();
+            draw2WhiteSquares();
+            draw2WhiteSquares();
+        }
+
+        function draw2WhiteSquares(){
+            drawWhiteSquare();
+            drawWhiteSquare();
+        }
+
+        function drawBlueSquare(){
+            document.getElementById('flagg').innerHTML += /*HTML*/`<div class="Blue"></div>`;
+            
+        }
+        function drawRedSquare(){
+            document.getElementById('flagg').innerHTML += /*HTML*/`<div class="red"></div>`;
+            
+        }
+        function drawWhiteSquare(){
+            document.getElementById('flagg').innerHTML += /*HTML*/`<div></div>`;
+            
+        }
+               
+    </script>
+</body>
+
+</html>

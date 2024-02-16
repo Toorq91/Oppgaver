@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="main">
+        <div>Du er ute</div>
+        <br/>
+        <button onclick="goIn()">Gå inn</button>
+    </div>
+    <script>
+        var space = document.getElementById('main')
+        function goIn() {
+            space.innerHTML= /*HTML*/ `
+            <div>Du er i gangen</div>
+            <br/>
+            <button onclick="goOut()">Gå ut</button><br/><br/>
+            <button onclick="goStue()">Gå til stuen</button>
+            <button onclick="goKitchen()">Gå til kjøkkenet</button>
+            <button onclick="goBath()">Gå til badet</button>
+            `
+        }
+
+        function goOut() {
+            space.innerHTML= /*HTML*/`
+            <div>Du er ute</div>
+            <br/>
+            <button onclick="goIn()">Gå inn</button>
+            `
+        }
+        function goStue() {
+            space.innerHTML= /*HTML*/`
+            <div>Du er i stuen</div>
+            <br/>
+            <button onclick="goIn()">Gangen</button>
+            `
+        }
+        function goKitchen() {
+            space.innerHTML= /*HTML*/`
+            <div>Du er på kjøkkenet</div>
+            <br/>
+            <button onclick="goIn()">Gangen</button>
+            `
+        }
+        function goBath() {
+            space.innerHTML= /*HTML*/`
+            <div>Du er på badet</div>
+            <br/>
+            <button onclick="goIn()">Gangen</button>
+            `
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        store('Tastatur', 1799, 12);
+        store('Headset', 1999, 12);
+        store('Mus', 599, 12);
+        store('Musematte', 399, 12);
+
+        function store(product, price, amount) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+            ${amount} stk. ${product} koster ${price},- = ${amount * price},- <br>
+            `;
+        }
+
+    </script>
+</body>
+
+</html>

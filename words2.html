@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* margin: 0px;
+            padding: 0px;
+            border: 1px solid gray; */
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="addText('green', 200, 'Det')">Det</button>
+    <button onclick="addText('red', 120, 'var', 'li')">var</button>
+    <button onclick="addText('blue', 300, 'en')">en</button>
+    <button onclick="addText('rgb(200, 200, 59)', 250, 'gang', 'i')">gang</button>
+    <button onclick="addText('gray', 500, 'Terje', 'b')">Terje</button>
+    <div id="app">
+    </div>
+    <script>
+        // Variere tagg
+        // En knapp som rullerer ord - variabler og operatorer, kanskje if
+    
+        function addText(color, fontSize, word, tag) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <${tag || 'span'} 
+                    style="color: ${color}; font-size: ${fontSize}%;">
+                    ${word}
+                </${tag || 'span'}>
+            `;
+        }
+    </script>
+</body>
+
+</html>

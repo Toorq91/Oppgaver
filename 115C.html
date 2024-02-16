@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   
+    div.page {
+        font-size: 100%;
+        background-color: aqua;
+        display: grid;
+        grid-template-columns: 100px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px;
+        grid-template-rows: 50px 50px 50px;
+    }
+
+    .label {
+        display: flex;
+        position: relative;
+    }
+
+    .radio {
+        display: flex;
+        position: relative;
+    }
+</style>
+
+<body>
+    <div class="page" id="app">
+        <h3>Mitt skjema</h3>
+        First Name
+        <input type="text" id="fname">
+        Last Name
+        <input type="text" id="lname">
+        En til hundre
+        <input type="range" id="zero2hundred">
+        Skriv inn et tall
+        <input class="radio" type="number" id="lname">
+        Favorittspråk
+        <input type="radio" name="fav_language" id="html">
+        <label for="html">HTML</label>
+        <input type="radio" name="fav_language" id="css">
+        <label for="css">CSS</label>
+        <input type="radio" name="fav_language" id="js">
+        <label for="js">JavaScript</label>
+    </div>
+</body>
+
+</html>

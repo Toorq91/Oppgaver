@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="number">0</h1>
+    <h1 id="number2">0</h1>
+    <button onclick="oneClick()">Klikk</button></br>
+    <button onclick="buyUpgrade()">Kjøp oppgradering +2 (10 poeng)</button></br>
+    <button onclick="buyUpgrade2()">Kjøp oppgradering +20 (100 poeng)</button></br>
+    <button onclick="buyUpgrade3()">Kjøp oppgradering +60 (1000 poeng)</button></br>
+    <button onclick="buyUpgrade4()">Kjøp oppgradering +120 (10000 poeng)</button></br>
+    <button onclick="buyUpgrade5()">Kjøp oppgradering +420 (100000 poeng)</button></br>
+    <button onclick="buyUpgrade6()">Kjøp oppgradering +1337 (1000000 poeng)</button></br>
+
+    <script>
+        let upgradeCount = 1;
+
+        function oneClick() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+
+            // hente ut nåværende tall
+            let number = parseInt(h1tag.innerHTML);
+
+            // øke med 1
+            number += upgradeCount;
+
+            // legge nytt tall tilbake
+            h1tag.innerHTML = number;
+            h1tagb.innerHTML = number;
+        }
+
+        function buyUpgrade() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 10) {
+                upgradeCount++;
+                number -= 10;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+            }
+        }
+
+        function buyUpgrade2() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 100) {
+                upgradeCount += 20;
+                number -= 100;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+
+            }
+        }
+
+        function buyUpgrade3() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 1000) {
+                upgradeCount += 60;
+                number -= 1000;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+
+            }
+        }
+
+        function buyUpgrade4() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 10000) {
+                upgradeCount += 120;
+                number -= 10000;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+
+            }
+        }
+
+        function buyUpgrade5() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 100000) {
+                upgradeCount += 420;
+                number -= 100000;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+
+            }
+        }
+
+        function buyUpgrade6() {
+            let h1tag = document.getElementById('number');
+            let h1tagb = document.getElementById('number2');
+            let number = parseInt(h1tag.innerHTML);
+
+            if (number >= 1000000) {
+                upgradeCount += 1337;
+                number -= 1000000;
+                h1tag.innerHTML = number;
+                h1tagb.innerHTML = number;
+
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

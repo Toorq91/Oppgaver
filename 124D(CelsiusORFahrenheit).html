@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="gradestokk('celsius', 24)">Celsius</button>
+    <button onclick="gradestokk('fahrenheit', 75.2)">Fahrenheit</button>
+    <div id="app"></div>
+    <script>
+
+
+        function gradestokk(temperatur, grader) {
+            if (temperatur == 'celsius'){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            Temperaturen er ${grader}° Celsius  = ${grader * 9/5 +32}° Fahrenheit
+            `;
+            }
+            else {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            Temperaturen er ${grader}° = ${(grader - 32)* 5/9}° Celsius
+            `;
+            }
+        }
+    </script>
+</body>
+</html>

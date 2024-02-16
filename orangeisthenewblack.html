@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="orangeisthenewblack.css">
+</head>
+
+<body>
+    <div id="board">
+        <!-- <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div>
+        <div class="black"></div>
+        <div class="orange"></div> -->
+        <script>
+
+            chessBoard();
+
+            function chessBoard() {
+                drawDoubleRow();
+                drawDoubleRow();
+                drawDoubleRow();
+                drawDoubleRow();
+            }
+
+
+            function drawDoubleRow() {
+                drawRow('green', 'blue', 'red', 'white', 'black', 'pink', 'aquamarine', 'orange')
+                drawRow('blue', 'red', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('green', 'blue', 'red', 'white', 'black', 'pink', 'aquamarine', 'orange')
+                drawRow('green', 'blue', 'red', 'white', 'black', 'pink', 'aquamarine', 'orange')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                drawRow('orange', 'black', 'blue', 'black', 'orange', 'black', 'blue', 'black')
+                
+                
+            }
+
+            function drawRow(color1, color2, color3, color4, color5, color6, color7, color8) {
+                document.getElementById('board').innerHTML += /*HTML*/`
+                <div class="${color1}Square"></div>
+                <div class="${color2}Square"></div>
+                <div class="${color3}Square"></div>
+                <div class="${color4}Square"></div>
+                <div class="${color5}Square"></div>
+                <div class="${color6}Square"></div>
+                <div class="${color7}Square"></div>
+                <div class="${color8}Square"></div>
+                
+                `;
+            }
+
+            
+        </script>
+    </div>    
+</body>
+</html>

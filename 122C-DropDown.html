@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id="dropdown"></div>
+    <div id="app"></div>
+    
+
+    <script>
+
+        let myVariable = 50;
+        let setNewFont = '';
+
+        document.getElementById('dropdown').innerHTML = /*HTML*/ `
+        <select onchange="setNewFont = this.value; showText()">
+            <option>Arial</option>
+            <option>Verdana</option>
+            <option>Tahoma</option>
+            <option>Trebuchet MS</option>
+            <option>Times New Roman</option>
+            <option>Georgia</option>
+            <option>Garamond</option>
+            <option>Courier New</option>
+            <option>Brush Script MT</option>
+        </select>
+        `;
+
+        showText();
+
+        function showText() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div>Du har valgt: ${setNewFont}</div>
+            <button onclick="buttonMakeBigger()">Bigger</button>
+            <button onclick="buttonMakeSmaller()">Smaller</button>
+            <p style="font-size: ${myVariable}pt; font-family: ${setNewFont};"> Hello world</p>
+        `;
+        }
+
+        function buttonMakeBigger() {
+            myVariable += 5
+            showText();
+        }
+
+        function buttonMakeSmaller() {
+            myVariable -= 5
+            showText();
+        }
+
+    </script>
+</body>
+
+</html>

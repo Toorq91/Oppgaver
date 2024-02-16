@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="app">Hello world</p>
+    <button onclick="buttonMakeBigger()">Bigger</button>
+    <button onclick="buttonMakeSmaller()">Smaller</button>
+</body>
+
+<script>
+    let myVariable = 50;
+    
+    showText();
+
+    function showText(){
+        document.getElementById('app').style.fontSize = `${myVariable}pt`;
+    }
+
+    function buttonMakeBigger(){
+        myVariable += 5
+        showText();
+    }
+
+    function buttonMakeSmaller(){
+        myVariable -= 5
+        showText();
+    }
+
+</script>
+</html>

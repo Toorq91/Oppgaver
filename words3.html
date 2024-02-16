@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            /* margin: 0px;
+            padding: 0px;
+            border: 1px solid gray; */
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="addText('green', 200)">+</button>
+    <button onclick="addText('red', 120)">+</button>
+    <button onclick="addText('blue', 300)">+</button>
+    <button onclick="addText('purple', 250)">+</button>
+    <button onclick="addText('gray', 500)">+</button>
+    <div id="app">
+    </div>
+    <script>
+        let number = 0;
+        // Lokale vs globale variabler
+
+        function addText(color, fontSize) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+                <span 
+                    style="color: ${color}; font-size: ${fontSize}%;">
+                    ${number+1}
+                </span>
+            `;
+            // number = number + 7; // øke med sju
+            // number += 7;
+            // number *= 2;
+            number = (number + 1) % 10;
+        }
+    </script>
+</body>
+
+</html>
