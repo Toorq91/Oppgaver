@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body>   
+    <div id="app">
+    </div>
+
+    <script>
+        showOnlyRed();
+
+        function show(onclick, color1, color2, color3) {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div class="trafficLight" onclick="${onclick}()">
+                    ${createHtmlForOneLamp(color1)}
+                    ${createHtmlForOneLamp(color2)}
+                    ${createHtmlForOneLamp(color3)}
+                </div>
+            `;
+        }
+
+        function createHtmlForOneLamp(color) {
+            return /*HTML*/`
+                <div class="light" style="background-color: ${color};"></div>
+            `;
+        }
+
+        function showOnlyRed() {
+            show('showRedAndYellow', 'red', 'gray', 'gray');
+        }
+
+        function showRedAndYellow() {
+            show('showOnlyGreen', 'red', 'yellow', 'gray');
+        }
+
+        function showOnlyGreen() {
+            show('showOnlyYellow', 'gray', 'gray', 'green');
+        }
+
+        function showOnlyYellow() {
+            show('showOnlyRed', 'gray', 'yellow', 'gray');
+        }
+
+    </script>
+</body>
+
+</html>

@@ -9,11 +9,11 @@
     <div id="app"></div>
 
     <script>
-        gradestokk('Temperaturen', 24);
+        gradestokk('Temperaturen', 80);
 
-        function gradestokk(temperatur, celsius) {
+        function gradestokk(temperatur, fahrenheit) {
             document.getElementById('app').innerHTML += /*HTML*/`
-            ${temperatur} i Fahrenheit (${celsius}) = ${(celsius - 32)* 5/9} Celsius
+            ${temperatur} i Fahrenheit ${fahrenheit}° = ${(fahrenheit - 32)* 5/9}° Celsius
             `;
         }
 

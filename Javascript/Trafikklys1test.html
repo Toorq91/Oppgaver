@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trafficLight {
+            width: 3rem;
+            height: 10rem;
+            display: flex;
+            flex-direction: column;
+            background-color: black;
+            padding: 1rem;
+            gap: 1rem;
+        }
+
+        div.light {
+            background-color: red;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <script>
+        showOnlyRed();
+
+        function show(onclick, color1, color2, color3) {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <div class="trafficLight" onclick="${onclick}()">
+                    ${createHtmlForOneLamp(color1)}
+                    ${createHtmlForOneLamp(color2)}
+                    ${createHtmlForOneLamp(color3)}
+                </div>
+            `;
+        }
+
+        function createHtmlForOneLamp(color) {
+            return /*HTML*/`
+                <div class="light" style="background-color: ${color};"></div>
+            `;
+        }
+            
+        function showOnlyRed() {
+            show('showRedAndYellow', 'red', 'gray', 'gray');
+        }
+
+        function showRedAndYellow() {
+            show('showOnlyGreen', 'red', 'yellow', 'gray');
+        }
+
+        function showOnlyGreen() {
+            show('showOnlyYellow', 'gray', 'gray', 'green');
+        }
+
+        function showOnlyYellow() {
+            show('showOnlyRed', 'gray', 'yellow', 'gray');
+        }
+
+            // function showOnlyRed() {
+            //     document.getElementById('app').innerHTML = /*HTML*/`
+            //         <div class ="trafficLight" onclick="showRedAndYellow()">
+            //             <div class="light" style="background-color: red;"></div>
+            //             <div class="light" style="background-color: gray;"></div>
+            //             <div class="light" style="background-color: gray;"></div>
+            //         </div>
+            //     `;
+            // }
+            // function showRedAndYellow() {
+            //     document.getElementById('app').innerHTML = /*HTML*/`
+            //         <div class ="trafficLight" onclick="showOnlyGreen()">
+            //             <div class="light" style="background-color: red;"></div>
+            //             <div class="light" style="background-color: yellow;"></div>
+            //             <div class="light" style="background-color: gray;"></div>
+            //         </div>
+            //     `;
+            // }
+            // function showOnlyGreen() {
+            //     document.getElementById('app').innerHTML = /*HTML*/`
+            //         <div class ="trafficLight" onclick="showOnlyYellow()">
+            //             <div class="light" style="background-color: gray;"></div>
+            //             <div class="light" style="background-color: gray;"></div>
+            //             <div class="light" style="background-color: green;"></div>
+            //         </div>
+            //     `;
+            // }
+            // function showOnlyYellow() {
+            //     document.getElementById('app').innerHTML = /*HTML*/`
+            //         <div class ="trafficLight" onclick="showOnlyRed()">
+            //             <div class="light" style="background-color: gray;"></div>
+            //             <div class="light" style="background-color: yellow;"></div>
+            //             <div class="light" style="background-color: gray;"></div>
+            //         </div>
+            //     `;
+            // }
+
+            </script>
+</body>
+
+</html>

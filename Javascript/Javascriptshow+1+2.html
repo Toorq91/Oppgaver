@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="dinId">1</h1>
+    <div id="knapper">
+        <button onclick="show2()">+1</button>
+        <button onclick="show2()">+2</button>
+    </div>
+    <script>
+        function show1() {
+            document.getElementById('dinId').innerHTML = 1
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show2()">+1</button>
+            <button onclick="show3()">+2</button>
+        `
+        }
+        function show2() {
+            document.getElementById('dinId').innerHTML = 2
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show3()">+1</button>
+            <button onclick="show4()">+2</button>
+        `
+        }
+
+        function show3() {
+            document.getElementById('dinId').innerHTML = 3
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show4()">+1</button>
+            <button onclick="show5()">+2</button>
+        `
+        }
+        function show4() {
+            document.getElementById('dinId').innerHTML = 4
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show5()">+1</button>
+            <button onclick="show6()">+2</button>
+        `
+        }
+        function show5() {
+            document.getElementById('dinId').innerHTML = 5
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show6()">+1</button>
+            <button onclick="show7()">+2</button>
+        `
+        }
+        function show6() {
+            document.getElementById('dinId').innerHTML = 6
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show7()">+1</button>
+            <button onclick="show8()">+2</button>
+        `
+        }
+        function show7() {
+            document.getElementById('dinId').innerHTML = 7
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show8()">+1</button>
+            <button onclick="show9()">+2</button>
+        `
+        }
+        function show8() {
+            document.getElementById('dinId').innerHTML = 8
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show9()">+1</button>
+            <button onclick="show10()">+2</button>
+        `
+        }
+        function show9() {
+            document.getElementById('dinId').innerHTML = 9
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show10()">+1</button>
+            <button onclick="show11()">+2</button>
+        `
+        }
+        function show10() {
+            document.getElementById('dinId').innerHTML = 10
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show11()">+1</button>
+            <button onclick="show12()">+2</button>
+        `
+        }
+        function show11() {
+            document.getElementById('dinId').innerHTML = 11
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show12()">+1</button>
+            <button onclick="show1()">+2</button>
+        `
+        }
+        function show12() {
+            document.getElementById('dinId').innerHTML = 12
+            document.getElementById('knapper').innerHTML = /*HTML*/`
+            <button onclick="show1()">+1</button>
+            <button onclick="show2()">+2</button>
+        `
+        }
+    </script>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <div>
+        <h1 id="tallet"></h1>
+        <div id="knapper">
+            <button onclick="plussEn()">+1</button>
+            <button onclick="plussTo()">+2</button>
+            <button onclick="minusEn()">-1</button>
+            <button onclick="minusTo()">-2</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <script>
+            var t = 0
+            document.getElementById('tallet').innerHTML = t
+            function plussEn() {
+                t = t + 1
+                document.getElementById('tallet').innerHTML = t
+            }
+            function plussTo() {
+                t = t + 2
+                document.getElementById('tallet').innerHTML = t
+            }
+            function minusEn() {
+                t = t - 1
+                document.getElementById('tallet').innerHTML = t
+            }
+            function minusTo() {
+                t = t - 2
+                document.getElementById('tallet').innerHTML = t
+            }
+            function reset() {
+                t = 0
+                document.getElementById('tallet').innerHTML = t
+            }
+        </script>
+</body>
+
+</html>

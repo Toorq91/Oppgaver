@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Every time you click the button, getRndInteger(min, max) 
+        returns a random number between 0 and 9 (both included):</p>
+
+    <button onclick="document.getElementById('bish').innerHTML = getRndInteger(0,10)">Click me Bish</button></br>
+    <p id="bish"></p>
+
+
+    <p>Every time you click the button, getRndInteger(min, max) 
+        returns a random number between 1 and 10 (both included):</p>
+
+    <button onclick="document.getElementById('youwont').innerHTML = getRndInteger2(1,10) ">you wont</button>
+    <p id="youwont"></p>
+
+    <script>
+
+        function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min) ) + min;
+        }
+
+        function getRndInteger2(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+    </script>
+</body>
+</html>
