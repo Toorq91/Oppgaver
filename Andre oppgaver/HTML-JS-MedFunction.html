@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        show123();
+
+        function show123() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>1</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show213()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>2</div>
+                <div>
+                    <button onclick="show213()">▲</button>
+                    <button onclick="show132()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>3</div>
+                <div>
+                    <button onclick="show231()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        function show213() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>2</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show123()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>1</div>
+                <div>
+                    <button onclick="show123()">▲</button>
+                    <button onclick="show231()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>3</div>
+                <div>
+                    <button onclick="show231()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        function show132() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>1</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show321()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>3</div>
+                <div>
+                    <button onclick="show321()">▲</button>
+                    <button onclick="show123()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>2</div>
+                <div>
+                    <button onclick="show123()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        function show231() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>2</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show321()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>3</div>
+                <div>
+                    <button onclick="show321()">▲</button>
+                    <button onclick="show213()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>1</div>
+                <div>
+                    <button onclick="show213()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        function show321() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>3</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show231()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>2</div>
+                <div>
+                    <button onclick="show231()">▲</button>
+                    <button onclick="show312()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>1</div>
+                <div>
+                    <button onclick="show312()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        function show312() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <ol>
+            <li>
+                <div>3</div>
+                <div>
+                    <button disabled>▲</button>
+                    <button onclick="show132()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>2</div>
+                <div>
+                    <button onclick="show132()">▲</button>
+                    <button onclick="show321()">▼</button>
+                </div>
+            </li>
+            <li>
+                <div>1</div>
+                <div>
+                    <button onclick="show321()">▲</button>
+                    <button disabled>▼</button>
+                </div>
+            </li>
+        </ol>
+            `;
+        }
+
+        
+    </script>
+</body>
+</html>

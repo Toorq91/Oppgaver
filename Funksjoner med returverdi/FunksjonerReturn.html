@@ -12,11 +12,13 @@
         
 </body>
 <script>
-    const a = 6;
-    const b = 7;
-    const c = add(a, b);
+    const a = 2;
+    const b = 44;
+    const c = 64;
+    const d = 128;
+    const e = add(a, b, c, d);
 
-    show(c);
+    show(e);
 
     function show(text) {
         document.getElementById('app').innerHTML = /*HTML*/`
@@ -33,8 +35,8 @@
         document.body.innerHTML = text;
     }
 
-    function add(a, b) {
-        return a + b;
+    function add(a, b, c, d) {
+        return a + b + c + d;
     }
 
     function average(a, b) {
