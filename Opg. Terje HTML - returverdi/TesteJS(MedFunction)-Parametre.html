@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="addAnotherLine()">❤</button>
+    <div id="app"></div>
+
+    <script>
+        var words = ['Thor', '+', 'Ida', '=', 'sant']
+        var currentWordIndex = 0;
+
+        showAll();
+
+        function showAll() {
+            addSomethingA('div', 'Thor', 'blue', '50px');
+        }
+
+        function addSomethingA(tagName, content, color, fontSize) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+            <${tagName} style="color: ${color}; font-size: ${fontSize}">${content}</${tagName}>
+            `;
+        }
+
+        function addAnotherLine() {
+            addSomethingA('div', '+', 'blue', '50px');
+        }
+
+    </script>
+</body>
+</html>
+ <!-- function addSomethingB() {
+     document.getElementById('app').innerHTML += /*HTML*/`
+     <h1>=</h1>
+     <h1>Sant</h1>
+     `;
+ }
+
+ function addNext() {
+     document.getElementById('app').innerHTML = /*HTML*/`
+     <button>❤</button>
+     `;
+} -->
