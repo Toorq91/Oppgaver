@@ -15,17 +15,32 @@
             { text: 'walks', color: 'green' },
             { text: 'in', color: 'red' },
             { text: 'the', color: 'purple' },
-            { text: 'woods', color: 'orange' }
+            { text: 'woods', color: 'orange' },
+            { text: 'and', color: 'pink' },
+            { text: 'feels', color: 'lightgray' },
+            { text: 'all', color: 'gray' },
+            { text: 'alone', color: 'black' },
         ];
 
         var currentWordIndex = 0; // Start from 1 to skip 'Thor'
 
     function addAnotherLine() {
         if (currentWordIndex < words.length) {
-            var appDiv = document.getElementById('app');
             var wordObj = words[currentWordIndex];
-            appDiv.innerHTML += `<div style="color: ${wordObj.color}; font-size: 24px">${wordObj.text}</div>`;
+            addSomethingA('div', wordObj.text, wordObj.color, '50px');
             currentWordIndex++;
+        }
+    }
+
+    function addSomethingA(tagName, content, color, fontSize) {
+        if (currentWordIndex < words.length) {
+            var appDiv = document.getElementById('app');
+            var newElement = document.createElement(tagName);
+            newElement.style.color = color;
+            newElement.style.fontSize = fontSize;
+            newElement.textContent = content;
+            appDiv.appendChild(newElement);
+
         }
     }
     
