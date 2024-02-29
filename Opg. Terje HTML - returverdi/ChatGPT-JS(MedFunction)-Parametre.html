@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        let order = [1, 2, 3]; // Initial order
+
+        show123();
+
+        function show123() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+                <ol>
+                    ${createOneLine(1, 'disabled', 'show213', 'show132')}
+                    ${createOneLine(2, 'show312', 'show231')}
+                    ${createOneLine(3, 'show231', 'show312')}
+                </ol>
+            `;
+        }
+
+        function show213() {
+            order = [2, 1, 3];
+            renderList();
+        }
+
+        function show132() {
+            order = [3, 2, 1];
+            renderList();
+        }
+
+        function show231() {
+            order = [2, 3, 1];
+            renderList();
+        }
+
+        function show312() {
+            order = [3, 1, 2];
+            renderList();
+        }
+
+        function createOneLine(text, btn1, btn2) {
+            return /*HTML*/ `
+                <li>
+                    <div>${text}</div>
+                    <div>
+                        <button ${btn1 !== 'disabled' ? `onclick="${btn1}()"` : 'disabled'}>▲</button>
+                        <button ${btn2 !== 'disabled' ? `onclick="${btn2}()"` : 'disabled'}>▼</button>
+                    </div>
+                </li>
+            `;
+        }
+
+        function renderList() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+                <ol>
+                    ${createOneLine(order[0], 'disabled', 'show213', 'show132')}
+                    ${createOneLine(order[1], 'show312', 'show231')}
+                    ${createOneLine(order[2], 'show231', 'show312')}
+                </ol>
+            `;
+        }
+    </script>
+</body>
+
+</html>
