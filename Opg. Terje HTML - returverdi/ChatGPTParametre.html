@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="addAnotherLine()">Add Another Line</button>
+    <div id="app"></div>
+
+    <script>
+        var words = [
+            { text: 'Thor', color: 'blue' },
+            { text: 'walks', color: 'green' },
+            { text: 'in', color: 'red' },
+            { text: 'the', color: 'purple' },
+            { text: 'woods', color: 'orange' }
+        ];
+
+        var currentWordIndex = 0; // Start from 1 to skip 'Thor'
+
+    function addAnotherLine() {
+        if (currentWordIndex < words.length) {
+            var appDiv = document.getElementById('app');
+            var wordObj = words[currentWordIndex];
+            appDiv.innerHTML += `<div style="color: ${wordObj.color}; font-size: 24px">${wordObj.text}</div>`;
+            currentWordIndex++;
+        }
+    }
+    
+    </script>
+</body>
+</html>
