@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="color: blue; font-size: 200px;">Hei på deg</div>
+
+    <div id="app"></div>
+
+    <script>
+        showB();
+
+        function showA() {
+            addSomethingB('div', 'Thor', 'red', '150px');
+            addSomethingB('div', 'Thor', 'red', '150px');
+            addSomethingB('div', 'Thor', 'red', '150px');
+            addSomethingB('div', 'Thor', 'red', '150px');
+        }
+
+        function addSomethingA(tagName, content, color, fontSize) {
+            document.getElementById('app').innerHTML += /*HTML*/`
+            <${tagName} style="color: ${color}; font-size: ${fontSize}">${content}</${tagName}>
+            `;
+        }
+
+        function showB() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1>Før</h1>
+            ${addSomethingB('li', 'Ida', 'red', '150px')}
+            ${addSomethingB('h1', 'Mellom', 'black', '32px')}
+            <h1>Mellom</h1>
+            ${addSomethingB('li', 'Thor', 'green', '150px')}
+            <h1>Etter</h1>
+            `;
+        }
+
+        function addSomethingB(tagName, content, color, fontSize) {
+            return /*HTML*/`
+            <${tagName} style="color: ${color}; font-size: ${fontSize}">${content}</${tagName}>
+            `;
+        }
+
+    </script>
+</body>
+</html>
