@@ -7,43 +7,41 @@
 </head>
 <body>
     <button onclick="addAnotherLine()">Add Another Line</button>
-    <div id="app"></div>
+    <ol id="app"></ol>
 
     <script>
         var words = [
-            { text: 'Thor', color: 'blue' },
-            { text: 'walks', color: 'green' },
-            { text: 'in', color: 'red' },
-            { text: 'the', color: 'purple' },
-            { text: 'woods', color: 'orange' },
-            { text: 'and', color: 'pink' },
-            { text: 'feels', color: 'lightgray' },
-            { text: 'all', color: 'gray' },
-            { text: 'alone', color: 'black' },
+            { tagName: 'li', text: 'Thor', color: 'blue', fontSize: '20px' },
+            { tagName: 'ol', text: 'walks', color: 'green', fontSize: '24px' },
+            { tagName: 'li', text: 'in', color: 'red', fontSize: '28px' },
+            { tagName: 'ol', text: 'the', color: 'purple', fontSize: '32px' },
+            { tagName: 'li', text: 'woods', color: 'orange', fontSize: '36px' },
+            { tagName: 'ol', text: 'and', color: 'pink', fontSize: '40px' },
+            { tagName: 'li', text: 'feels', color: 'lightgray', fontSize: '44px' },
+            { tagName: 'ol', text: 'all', color: 'gray', fontSize: '48px' },
+            { tagName: 'li', text: 'alone', color: 'black', fontSize: '52px' },
         ];
 
-        var currentWordIndex = 0; // Start from 1 to skip 'Thor'
+        var currentWordIndex = 0; // Start from 0 to include 'Thor'
 
-    function addAnotherLine() {
-        if (currentWordIndex < words.length) {
-            var wordObj = words[currentWordIndex];
-            addSomethingA('div', wordObj.text, wordObj.color, '50px');
-            currentWordIndex++;
+        function addAnotherLine() {
+            if (currentWordIndex < words.length) {
+                var wordObj = words[currentWordIndex];
+                addSomethingA(wordObj.tagName, wordObj.text, wordObj.color, wordObj.fontSize);
+                currentWordIndex++;
+            }
         }
-    }
 
-    function addSomethingA(tagName, content, color, fontSize) {
-        if (currentWordIndex < words.length) {
-            var appDiv = document.getElementById('app');
-            var newElement = document.createElement(tagName);
-            newElement.style.color = color;
-            newElement.style.fontSize = fontSize;
-            newElement.textContent = content;
-            appDiv.appendChild(newElement);
-
+        function addSomethingA(tagName, content, color, fontSize) {
+            if (currentWordIndex < words.length) {
+                var appList = document.getElementById('app');
+                var newElement = document.createElement(tagName);
+                newElement.style.color = color;
+                newElement.style.fontSize = fontSize;
+                newElement.textContent = content;
+                appList.appendChild(newElement);
+            }
         }
-    }
-    
     </script>
 </body>
 </html>
