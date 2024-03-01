@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script>
+        // Initialize total cost variable
+        var totalCost = 0;
+
+        // Show products and update total cost
+        showVarer('Gaming mouse', 699, 3);
+        showVarer('Headphones', 1999, 4);
+        showVarer('Mousemat', 379, 6);
+        showVarer('Keyboard', 2499, 2);
+
+        // Display total cost at the bottom
+        document.getElementById('app').innerHTML += /*HTML*/`
+            <br>
+            Total cost: ${totalCost},-
+        `;
+
+        function showVarer(product, price, amount) {
+            // Update total cost
+            totalCost += amount * price;
+
+            // Display individual product information
+            document.getElementById('app').innerHTML += /*HTML*/`
+                ${amount} stk. ${product} koster ${price},- = ${amount * price},- <br>
+            `;
+        }
+    </script>
+</body>
+</html>
