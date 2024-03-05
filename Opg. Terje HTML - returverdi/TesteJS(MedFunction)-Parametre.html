@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <li style="color:blue; font-size: 200px;">Thor</li>
+    <li style="color:blue; font-size: 100px;">Thor</li>
 
     <div id="app"></div>
 
@@ -15,7 +15,8 @@
         showNames();
 
         function showNames(){
-            addSomething('li', 'Thor', 'red', '200px');
+            addSomething('li', 'Thor', 'red', '100px');
+            addSomething('div', 'Martin', 'blue', '100px');
         }
 
         function addSomething(tagName, content, color, fontSize) {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTMLen som vises -->
+    <div id="app"></div>
+
+<script>
+    // Setter størrelsen på teksten til 50px
+    let myVariable = 50;
+
+// Viser fram det som har blitt gjort ifra function showText()
+showText();
+
+// Her lages alt som skal vises all HTML som skal vises oppe i <div>
+function showText() {
+    document.getElementById('app').innerHTML = /*HTML*/`
+    <button onclick="buttonMakeBigger()">Bigger</button><br>
+    <button onclick="buttonMakeAlotBigger()">AlotBigger</button><br>
+    <button onclick="buttonMakeSmaller()">Smaller</button><br>
+    <button onclick="buttonMakeAlotSmaller()">AlotSmaller</button><br>
+    <button onclick="buttonIncreaseByOne()">+1</button><br>
+    <button onclick="buttonDecreasedByOne()">-1</button><br>
+    <button onclick="buttonPercentOf()">%</button><br>
+    <div style="font-size: ${myVariable}px;">Change text SIZE</div>
+    `;
+}
+
+// Legger til 5px på teksten's størrelse
+function buttonMakeBigger() {
+    myVariable += 5
+    showText();
+}
+
+// Reduserer med 5px på teksten
+function buttonMakeSmaller () {
+    myVariable -= 5
+    showText();
+}
+
+// Øker tekstens størrelse 5 ganger
+function buttonMakeAlotBigger () {
+    myVariable *= 5
+    showText();
+}
+
+// Deler opp teksetens størrelse 5 ganger
+function buttonMakeAlotSmaller () {
+    myVariable /= 5
+    showText();
+}
+
+/*
+Eksempel: Om den totale tekst størrelsen = 160px og %= verdien er satt til 50, kommer den til å dele på 150 
+som er det nærmeste 50 kan gange seg selv opp med i (grupper 3x 50 = 150) for å fortsatt ikke gå over 160. 
+Da sitter man igjen med 10px.
+*/
+function buttonPercentOf() {
+    myVariable %= 50
+    showText();
+}
+
+// Øker tekstens størrelse med 1
+function buttonIncreaseByOne() {
+    myVariable ++
+    showText();
+}
+
+// Reduserer tekstens størrelse med 1
+function buttonDecreasedByOne() {
+    myVariable --
+    showText();
+}
+</script>
+</body>
+
+</html>
