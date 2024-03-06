@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <!-- Dette er et simpelt klikker spill som tar starter på 0 og øker tallet med 1 for hver gang man trykker.
+         Når man har nådd 10 poeng eller mer er det mulig å trykke upgrade knappen som tar bort 10 poeng
+         men permanent øker klikk knappens verdi med 1.
+         For hver gang man trykker på (Klikk) knappen vil order 'Hei' bytte og 'Hade' bytte frem og tilbake.
+         For hver gang man trykker på (Kjøp oppgradering) knappen vil det loope mellom emojiene (😊, 🙁, 😫, 🤪)-->
+         
     <!-- HTML body -->
     <div style="font-size: 100px;" id="number">0</div>
     <div style="font-size: 50px; background-color: aqua;" id="textElement">Hei</div>
     <h1 style="font-size: 50px;" id="smileyIcon">😊</h1>
     <button onclick="oneClick()">Klikk</button>
     <button onclick="buyUpgrade()">Kjøp oppgradering</button>
-     
+
     <script>
         // global variabel
         let upgradeCount = 1;
@@ -43,7 +51,7 @@
             // legge nytt tall tilbake
             h1tag.innerHTML = number;
         }
-        
+
 
         // funksjon for å oppgradere tallet til å øke med 1 mer hver gang
         function buyUpgrade() {
@@ -62,16 +70,17 @@
             } else if (icon == '🤪') {
                 smileyIcon.innerHTML = '😊';
             }
-                
-       
-            
+
+
+
             // hvis tallet er 10 eller større så kan man trykke knappen og øke klikk versjonen permanent med 1
-            if (number >=10) {
+            if (number >= 10) {
                 upgradeCount++;
-                number -=10;
+                number -= 10;
                 h1tag.innerHTML = number;
             }
         }
     </script>
 </body>
+
 </html>
