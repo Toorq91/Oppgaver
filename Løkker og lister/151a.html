@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>max letters</title>
+    <link rel="icon" href="head2.JPG"/>
+</head>
+<body>
+    <div id="main"></div>
+
+    <script>
+        // Model
+        let allText = '';
+        let maxiLength = '';
+        let displayedText = '';
+
+        // View
+        Project();
+
+        function Project() {
+            document.getElementById('main').innerHTML = /*HTML*/ `
+                <label>Max Length: </label>
+                <input type="number"
+                        value="${maxiLength}"
+                        onchange="maxiLength=this.valueAsNumber"/>
+                <br/>
+                <label>Input text: </label>
+                <input type="text" onchange="allText=this.value" value="${allText}"/>
+                <button onclick="addText()">Add</button>
+                <br/><br/>
+                <div style="font-size: 150%;">${displayedText}</div>
+            `;
+        };
+
+        // Controller
+        function addText() {
+            displayedText += allText;
+            if (allText.length >= maxiLength + 1) {
+                allText = allText.slice(0, maxiLength);
+            }
+            if (displayedText.length >= maxiLength + 1) {
+                displayedText = displayedText.slice(0, maxiLength);
+            }
+            Project();
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let a = 50
+        let b = 30
+        // let sum = 30 + 50;
+
+        showSumAddition();
+        showSumSubtracting();
+        showSumMultiplication();
+        showSumDivision();
+        showSumModulus();
+
+        // Addisjon (+) legger sammen A + B = (50 + 30 = 80)
+        function showSumAddition(){
+            document.getElementById('app').innerHTML = /*HTML*/`
+            Sum: ${a + b} <br/>
+            `;
+        }
+
+        // Subtraksjon (-) trekker ifra hverandre A - B = (50 - 30 = 80)
+        function showSumSubtracting(){
+            document.getElementById('app').innerHTML += /*HTML*/`
+            Sum: ${a - b} <br/>
+            `;
+        }
+
+        //Multiplikasjon (*) ganger opp verdien A * B = (50 * 30 = 1500)
+        function showSumMultiplication(){
+            document.getElementById('app').innerHTML += /*HTML*/`
+            Sum: ${a * b} <br/>
+            `;
+        }
+
+        //Divisjon (/) deler opp verdien A / B = (50 / 30 = 1.66666...)
+        function showSumDivision(){
+            document.getElementById('app').innerHTML += /*HTML*/`
+            Sum: ${a / b} <br/>
+            `;
+        }
+
+        /*
+        Modulus (%) prøver å dele så mange ganger den kan uten å bestige den første verdien, 
+        trekker ifra og gir tilbake det som er igjen = (50 - 30 = 20).
+        Hvis A = 110 og B = 30 så blir det slik (30 * 3 = 90 -> 110 - 90 = 20)
+        */
+        function showSumModulus(){
+            document.getElementById('app').innerHTML += /*HTML*/`
+            Sum: ${a % b} <br/>
+            `;
+        }
+
+    </script>
+</body>
+</html>
+
+
+
+<!-- Aritmatiske operatører:
+
++       (addisjon)
+-       (subtraksjon)
+*       (multiplikasjon)
+/       (divisjon)
+%       (modulus, gir resten av en divisjon)
+
+
+Sammenligningsoperatører:
+
+==      (like med)
+===     (streng like med)
+!=      (ikke like med)
+!==     (strang ikke like med)
+>       (større enn)
+<       (mindre enn)
+>=      (større eller lik)
+<=      (mindre eller lik)
+
+Logiske operatører:
+
+??      (Hvis let/var er definert med en tekst eller tall bruk venstre, hvis ikke definert (0, undefined, "") sett svar til høyre)
+&&      (logisk OG)
+||      (logisk ELLER)
+!       (logisk IKKE)
+
+Tildelingsoperatører:
+
+= (tildele verdi til variabel)
++=, -=, *=, /= (forkortet tildeling) -->

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML body -->
+    <div style="font-size: 100px;" id="number">0</div>
+    <div style="font-size: 50px; background-color: aqua;" id="textElement">Hei</div>
+    <h1 style="font-size: 50px;" id="smileyIcon">😊</h1>
+    <button onclick="oneClick()">Klikk</button>
+    <button onclick="buyUpgrade()">Kjøp oppgradering</button>
+     
+    <script>
+        // global variabel
+        let upgradeCount = 1;
+
+        function oneClick() {
+            /* 
+            henter ut elementet med id'en fra HTML'en, 
+            lager dette til en variabel som kan modifiseres for 
+            så kunne endre det som står i HTML.
+            */
+            let h1tag = document.getElementById('number')
+            let textElement = document.getElementById('textElement');
+            let text = textElement.innerHTML;
+
+            // bytter frem og tilbake mellom ordet 'Hei' og 'Hade' i HTML-en
+            if (text == 'Hei') {
+                textElement.innerHTML = 'Hade';
+            } else {
+                textElement.innerHTML = 'Hei';
+            }
+
+            // henter ut nåværende tall
+            let number = parseInt(h1tag.innerHTML);
+
+            // øke tallet med 1
+            number += upgradeCount;
+
+            // legge nytt tall tilbake
+            h1tag.innerHTML = number;
+        }
+        
+
+        // funksjon for å oppgradere tallet til å øke med 1 mer hver gang
+        function buyUpgrade() {
+            let h1tag = document.getElementById('number');
+            let number = parseInt(h1tag.innerHTML);
+            let smileyIcon = document.getElementById('smileyIcon');
+            let icon = smileyIcon.innerHTML;
+
+            // if setning som looper emojiene '😊', '🙁', '😫', '🤪' og tilbake til '😊'
+            if (icon == '😊') {
+                smileyIcon.innerHTML = '🙁';
+            } else if (icon == '🙁') {
+                smileyIcon.innerHTML = '😫';
+            } else if (icon == '😫') {
+                smileyIcon.innerHTML = '🤪';
+            } else if (icon == '🤪') {
+                smileyIcon.innerHTML = '😊';
+            }
+                
+       
+            
+            // hvis tallet er 10 eller større så kan man trykke knappen og øke klikk versjonen permanent med 1
+            if (number >=10) {
+                upgradeCount++;
+                number -=10;
+                h1tag.innerHTML = number;
+            }
+        }
+    </script>
+</body>
+</html>
