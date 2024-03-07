@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="myDiv" style="width: 200px; height: 200px;">Test</div>
+    <script>
+
+        const myDiv = document.getElementById('myDiv');
+        let myColor = [230, 60, 20];
+
+        demoColor(...myColor);
+
+        function demoColor(red, green, blue) {
+            const color = {red, green, blue};
+            myDiv.style.backgroundColor = `rgb(${color.red}, ${color.green}, ${color.blue})`
+            const invertedColor = invertColor3(color);
+            myDiv.style.color = `rgb(${invertedColor.red}, ${invertedColor.green}, ${invertedColor.blue})`
+        }
+
+        function invertColor3(color) {
+            return {
+                red: 255 - color.red,
+                green: 255 - color.green,
+                blue: 255 - color.blue,
+            }
+        }
+
+        // color (representerer et objekt)
+        function invertColor2(color) {
+            // color sin farge settes til 255 - color sin farge
+            color.red = 255 - color.red;
+            color.green = 255 - color.green;
+            color.blue = 255 - color.blue;
+            return color;
+        }
+
+        function invertColor1(red, green, blue) {
+            red = 255 - red;
+            green = 255 - green;
+            blue = 255 - blue;
+            return { red: red, green: green, blue: blue };
+        }
+
+    </script>
+</body>
+
+</html>
