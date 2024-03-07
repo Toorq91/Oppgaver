@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Gjett nummeret:</label><br/>
+    <button>Random</button>
+    <h1 id="app"></h1>
+    <script>
+       let secretNumber = getRandomNumber (1, 100);
+
+        showSecretNumber();
+
+        function showSecretNumber() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <h1></h1>
+            `;
+        }
+
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+</html>
