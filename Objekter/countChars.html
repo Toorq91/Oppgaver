@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let text = `Huset på Gjøvik melder på Facebook at Hkeem-konserten torsdag kveld er avlyst.
+
+Festiviteten på Hamar skriver på Facebook at Hkeem-konserten fredag kveld utgår.
+
+Artisten har også avlyst en planlagt opptreden under Vinterfestuka i Narvik 12. mars, ifølge festivalen.`;
+
+        let characterCounts = {
+            // a: 0, // sier hvor mange a-er vi har
+            // b: 0, // sier hvor mange a-er vi har
+        };
+
+        // teller opp antall av hvert tegn
+        for(let character of text){
+            if(!characterCounts[character])characterCounts[character] = 0;
+            characterCounts[character]++;
+        }
+
+        // gå gjennom alle tegn som er talt opp
+        for(let character in characterCounts){
+            const count = characterCounts[character]
+            console.log(`Det er ${count} forekomster av tegnet ${character}.`);
+        }
+
+        
+
+
+
+
+    </script>
+</body>
+</html>

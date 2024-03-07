@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pause 13:06</h1>
+
+    <div id="myDiv" style="width: 200px; height: 200px;">
+        Test
+    </div>
+    <script>
+
+        const myDiv = document.getElementById('myDiv');
+
+        function demoColor(red,green,blue){
+            const color = {red,green,blue};
+            myDiv.style.backgroundColor = getColorCss(color);
+            const invertedColor = invertColor3(color);
+            myDiv.style.color = getColorCss(invertedColor);
+        }
+
+        function getColorCss(color){
+            return `rgb(${color.red}, ${color.green}, ${color.blue})`;
+        }
+
+        function invertColor3(color){
+            return {
+                red: 255 - color.red,
+                green: 255 - color.green,
+                blue: 255 - color.blue,
+            }
+        }
+        
+        function invertColor2(color){
+            color.red = 255 - color.red;
+            color.green = 255 - color.green;
+            color.blue = 255 - color.blue;
+            return color;
+        }
+
+        function invertColor1(red, green, blue){
+            red = 255 - red;
+            green = 255 - green;
+            blue = 255 - blue;
+            return {red: red, green: green, blue: blue};
+        }
+
+    </script>
+</body>
+</html>

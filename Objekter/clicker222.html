@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        div {
+            font-size: 300%;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        // model
+        const model = {
+            points: {
+                total: 0,
+                perClick: 1,
+            },
+            smiley: {
+                index: 0,
+            },
+            cheat: {
+                code: false,
+            }
+        };
+
+        // controller
+
+
+        function doClick() {
+            const points = model.points;
+            points.total += points.perClick;
+            model.smiley.index = 1 - model.smiley.index;
+            updateView();
+        }
+
+        function buyUpgrade() {
+            if (model.points.total < 10) return;
+            model.points.total -= 10;
+            model.points.perClick++;
+            updateView();
+        }
+        function cheatCode() {
+            model.points.total *= 10;
+            model.points.perClick *= 10;
+            model.cheat.code = true;
+            updateView();
+        }
+
+        // view
+        updateView();
+        function updateView() {
+            let showCheating = '<div>You have cheated</div>'
+            let noobGamer = model.cheat.code === false ? '' : showCheating
+            var smiley = model.smiley.index == 0 ? '😀' : '😁';
+            document.getElementById('app').innerHTML = /*HTML*/ `
+                <div id="image" onclick="doClick()">${smiley}</div>
+                <div id="pointsInfo">${model.points.total}${noobGamer}</div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="cheatCode()">Cheat +10 </button>
+                
+                `;
+        }
+    </script>
+</body>
+
+</html>
