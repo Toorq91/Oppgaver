@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        let upgradeCount = 1;
+        
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div style="font-size: 100px" id="number">0</div>
+            <div style="font-size: 50px; background-color: aqua; color: red;" id="myText">Hei</div>
+            <div style="font-size: 100px">😊</div>
+            <button onclick="count()">Klikk</button>
+            <button onclick="buyUpgrade()">Upgrade</button>
+            `;
+        }
+
+        function count() {
+            let divtag = document.getElementById('number')
+            let myText = document.getElementById('myText')
+            let text = myText.innerHTML;
+
+            // bytter mellom 'Hei' og 'Hade'
+            if (text == 'Hei') {
+                myText.innerHTML = 'Hade';
+            } else {
+                myText.innerHTML = 'Hei';
+            }
+
+            // henter ut nåværende tall ifra div-en
+            let number = parseInt(divtag.innerHTML);
+            // øke tallet med 1
+            number += upgradeCount;
+            // legge nytt tall tilbake i div-en
+            divtag.innerHTML = number;
+        }
+
+        function buyUpgrade() {
+            let 
+        }
+
+    </script>
+</body>
+
+</html>
