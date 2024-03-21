@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        let fruktliste = ["eple", "banan", "appelsin", "pære"];
+
+        updateFruit();
+
+        function updateFruit() {
+            document.getElementById('app').innerHTML = /*HTML*/ `
+            <div style="word-spacing: 10px; font-size: 200%;">${fruktliste.join(', ')}</div>
+            <div>Random funksjoner:
+                <button onclick="leggTilRandomFrukt()">Legg til random frukt</button>
+                <button onclick="leggTilRandomExoticFrukt()">Legg til random exotic frukt</button>
+                <button onclick="fjernRandomFrukt()">Fjern random frukt</button>
+            </div>
+            <div>Legg til funksjoner:
+                    <button onclick="leggTilFørsteEple()">Legg til først eple</button>
+                    <button onclick="leggTilDrue()">+ drue</button>
+                    <button onclick="leggTilEple()">+ eple</button><br/>
+            </div>
+            <div>Fjern funksjoner:
+                        <button onclick="fjernDrue()">- drue</button>
+                        <button onclick="fjernEple()">- eple</button>
+                        <button onclick="fjernFørsteFrukt()">Fjern første</button>
+                        <button onclick="fjernAllFrukt()">Fjern alt</button>
+                        <button onclick="fjernSisteFrukt()">Fjern siste</button>
+            </div>
+            `;
+        }
+
+        function leggTilRandomFrukt() {
+            const randomIndex = Math.floor(Math.random() * fruktliste.length);
+            const randomFruit = fruktliste[randomIndex];
+            fruktliste.push(randomFruit);
+            updateFruit();
+        }
+
+        function leggTilRandomExoticFrukt() {
+            let randomExoticFruit = ["ananas", "blood orange", "dragon fruit", "durian", "star fruit"];
+            const randomIndex = Math.floor(Math.random() * randomExoticFruit.length);
+            const randomFruit = randomExoticFruit[randomIndex];
+            fruktliste.push(randomFruit);
+            updateFruit();
+        }
+
+        function fjernRandomFrukt() {
+            const randomIndex = Math.floor(Math.random() * fruktliste.length);
+            fruktliste.splice(randomIndex, 1);
+            updateFruit();
+        }
+
+        function leggTilDrue() {
+            fruktliste.push("drue");
+            updateFruit();
+        }
+
+        function fjernDrue() {
+            if (fruktliste.includes("eple")) {
+                let drueIndex = fruktliste.indexOf("drue");
+                if (drueIndex !== -1) {
+                    fruktliste.splice(drueIndex, 1);
+                    updateFruit();
+                }
+            }
+        }
+
+        function leggTilFørsteEple() {
+            fruktliste.unshift("eple");
+            updateFruit();
+        }
+ 
+        function leggTilEple() {
+            fruktliste.push("eple");
+            updateFruit();
+        }
+
+        function fjernEple() {
+            let epleIndex = fruktliste.indexOf("eple");
+            if (epleIndex !== -1) {
+                fruktliste.splice(epleIndex, 1);
+                updateFruit();
+            }
+        }
+
+        function fjernFørsteFrukt() {
+            fruktliste.shift();
+            updateFruit();
+        }
+
+        function fjernAllFrukt() {
+            fruktliste = [];
+            updateFruit();
+        }
+
+        function fjernSisteFrukt() {
+            fruktliste.pop();
+            updateFruit();
+        }
+
+    </script>
+</body>
+
+</html>
