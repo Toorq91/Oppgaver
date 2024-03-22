@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button style="margin-right: 10px;" onclick="addCircle()">Legg til sirkel</button>
+    <button onclick="addRectangle()">Legg til rektangel</button>
+    <br />
+    <button onclick="addCircleToRow2()">sirkel på rad 2</button>
+    <button onclick="addRectangleToRow2()">rektangel på rad 2</button>
+    <br />
+    <button onclick="addCircleToRow3()">sirkel på rad 3</button>
+    <button onclick="addRectangleToRow3()">rektangel på rad 3</button>
+    <br />
+    <button style="margin-right: 18px;" onclick="removeCircles()">Fjern sirkler</button>
+    <button onclick="removeRectangles()">Fjern rektangel</button>
+    <br />
+    <button onclick="removeAll()">Fjern alt</button>
+    <br /> <br />
+    <svg id="mySvg" width="1900" height="400" style="background-color: lightgray;">
+    </svg>
+
+    <script>
+        let circlePositionX = 60;
+        let circlePositionXRow2 = 60
+        let circlePositionXRow3 = 60
+        let rectanglePositionX = 10;
+        let rectanglePositionXRow2 = 10;
+        let rectanglePositionXRow3 = 10;
+        let circles = [];
+        let rectangles = [];
+
+        function addCircle() {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            circle.setAttribute('cx', circlePositionX);
+            circle.setAttribute('cy', 70);
+            circle.setAttribute('r', 40);
+            circle.setAttribute('stroke', 'green');
+            circle.setAttribute('stroke-width', 4);
+            circle.setAttribute('fill', 'yellow');
+            circle.setAttribute('class', 'circle');
+            document.getElementById('mySvg').appendChild(circle);
+            circles.push(circle);
+            circlePositionX += 110;
+        }
+
+        function addCircleToRow2() {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            circle.setAttribute('cx', circlePositionXRow2);
+            circle.setAttribute('cy', 180);
+            circle.setAttribute('r', 40);
+            circle.setAttribute('stroke', 'green');
+            circle.setAttribute('stroke-width', 4);
+            circle.setAttribute('fill', 'yellow');
+            circle.setAttribute('class', 'circle');
+            document.getElementById('mySvg').appendChild(circle);
+            circles.push(circle);
+            circlePositionXRow2 += 110;
+        }
+
+        function addCircleToRow3() {
+            let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
+            circle.setAttribute('cx', circlePositionXRow3);
+            circle.setAttribute('cy', 290);
+            circle.setAttribute('r', 40);
+            circle.setAttribute('stroke', 'green');
+            circle.setAttribute('stroke-width', 4);
+            circle.setAttribute('fill', 'yellow');
+            circle.setAttribute('class', 'circle');
+            document.getElementById('mySvg').appendChild(circle);
+            circles.push(circle);
+            circlePositionXRow3 += 110;
+        }
+
+        function addRectangle() {
+            let rectangle = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
+            rectangle.setAttribute('x', rectanglePositionX);
+            rectangle.setAttribute('y', 20);
+            rectangle.setAttribute('rx', 20);
+            rectangle.setAttribute('ry', 20);
+            rectangle.setAttribute('width', 100);
+            rectangle.setAttribute('height', 100);
+            rectangle.setAttribute('fill', 'red');
+            rectangle.setAttribute('stroke', 'black');
+            rectangle.setAttribute('stroke-width', 5);
+            rectangle.setAttribute('opacity', 0.4);
+            rectangle.setAttribute('class', 'rect');
+            document.getElementById('mySvg').appendChild(rectangle);
+            rectangles.push(rectangle);
+            rectanglePositionX += 110;
+        }
+
+        function addRectangleToRow2() {
+            let rectangle = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
+            rectangle.setAttribute('x', rectanglePositionXRow2);
+            rectangle.setAttribute('y', 130);
+            rectangle.setAttribute('rx', 20);
+            rectangle.setAttribute('ry', 20);
+            rectangle.setAttribute('width', 100);
+            rectangle.setAttribute('height', 100);
+            rectangle.setAttribute('fill', 'red');
+            rectangle.setAttribute('stroke', 'black');
+            rectangle.setAttribute('stroke-width', 5);
+            rectangle.setAttribute('opacity', 0.4);
+            rectangle.setAttribute('class', 'rect');
+            document.getElementById('mySvg').appendChild(rectangle);
+            rectangles.push(rectangle);
+            rectanglePositionXRow2 += 110;
+        }
+
+        function addRectangleToRow3() {
+            let rectangle = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
+            rectangle.setAttribute('x', rectanglePositionXRow3);
+            rectangle.setAttribute('y', 240);
+            rectangle.setAttribute('rx', 20);
+            rectangle.setAttribute('ry', 20);
+            rectangle.setAttribute('width', 100);
+            rectangle.setAttribute('height', 100);
+            rectangle.setAttribute('fill', 'red');
+            rectangle.setAttribute('stroke', 'black');
+            rectangle.setAttribute('stroke-width', 5);
+            rectangle.setAttribute('opacity', 0.4);
+            rectangle.setAttribute('class', 'rect');
+            document.getElementById('mySvg').appendChild(rectangle);
+            rectangles.push(rectangle);
+            rectanglePositionXRow3 += 110;
+        }
+
+        function removeCircles() {
+            let circles = document.querySelectorAll('.circle');
+            circles.forEach(circle => {
+                circle.remove();
+            });
+            circles = [];
+            circlePositionX = 60;
+            circlePositionXRow2 = 60;
+            circlePositionXRow3 = 60;
+        }
+
+        function removeRectangles() {
+            let rectangles = document.querySelectorAll('.rect');
+            rectangles.forEach(rectangle => {
+                rectangle.remove();
+            });
+            rectangles = [];
+            rectanglePositionX = 10;
+            rectanglePositionXRow2 = 10;
+            rectanglePositionXRow3 = 10;
+        }
+
+        function removeAll() {
+            document.getElementById('mySvg').innerHTML = '';
+            circlePositionX = 60;
+            circlePositionXRow2 = 60;
+            circlePositionXRow3 = 60;
+            rectanglePositionX = 10;
+            rectanglePositionXRow2 = 10;
+            rectanglePositionXRow3 = 10;
+        }
+        
+    </script>
+</body>
+
+<!-- function addCircle() {
+    document.getElementById('mySvg').innerHTML += /*HTML*/`
+    <circle cx="${circlePositionX}" cy="70" r="40" stroke="green" stroke-width="4" fill="yellow" />            
+    `;
+    circlePositionX += 110;
+
+     function addRectangle() {
+     document.getElementById('mySvg').innerHTML += /*HTML*/` 
+            <rect x="${rectanglePositionX}" y="20" rx="20" ry="20" width="100" height="100" fill="red" stroke="black" stroke-width="5" opacity="0,5"/> 
+            `;
+            rectanglePositionX += 110;
+} -->
+
+</html>
+
+

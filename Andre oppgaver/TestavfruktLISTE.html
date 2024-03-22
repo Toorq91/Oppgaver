@@ -11,60 +11,81 @@
     <div id="app"></div>
 
     <script>
+        // Model
         let fruktliste = ["eple", "banan", "appelsin", "pære"];
 
         updateFruit();
 
+        // View
+
+        // Oppdaterer visningen av fruktlisten og knappene i HTML-dokumentet.
         function updateFruit() {
             document.getElementById('app').innerHTML = /*HTML*/ `
-            <div style="word-spacing: 10px; font-size: 200%;">${fruktliste.join(', ')}</div>
-            <div>Random funksjoner:
-                <button onclick="leggTilRandomFrukt()">Legg til random frukt</button>
-                <button onclick="leggTilRandomExoticFrukt()">Legg til random exotic frukt</button>
-                <button onclick="fjernRandomFrukt()">Fjern random frukt</button>
-            </div>
-            <div>Legg til funksjoner:
-                    <button onclick="leggTilFørsteEple()">Legg til først eple</button>
-                    <button onclick="leggTilDrue()">+ drue</button>
-                    <button onclick="leggTilEple()">+ eple</button><br/>
-            </div>
-            <div>Fjern funksjoner:
-                        <button onclick="fjernDrue()">- drue</button>
-                        <button onclick="fjernEple()">- eple</button>
-                        <button onclick="fjernFørsteFrukt()">Fjern første</button>
-                        <button onclick="fjernAllFrukt()">Fjern alt</button>
-                        <button onclick="fjernSisteFrukt()">Fjern siste</button>
-            </div>
-            `;
+                <div>Legg til funksjoner:
+                    <button style="margin-left: 92px;" onclick="leggTilFørsteEple()">+ først eple</button>
+                    <button style="margin-left: 39px;" onclick="leggTilDrue()">+ drue</button>
+                    <button style="margin-left: 107px;" onclick="leggTilEple()">+ eple</button>
+                </div>
+                <div>Fjern spesifikke frukter:
+                    <button style="margin-left: 64px;" onclick="fjernEple()">- eple</button>
+                    <button style="margin-left: 73px;" onclick="fjernDrue()">- drue</button>
+                    <button style="margin-left: 109px;" onclick="fjernDrueHvisEpleFinns()">- drue hvis eple finns</button>
+                </div>
+                <div>Fjern første/siste eller allt:
+                    <button style="margin-left: 51px;" onclick="fjernFørsteFrukt()">Fjern første</button>
+                    <button style="margin-left: 37px;" onclick="fjernSisteFrukt()">Fjern siste</button>
+                    <button style="margin-left: 83px;" onclick="fjernAllFrukt()">Fjern alt</button>
+                </div>
+                <div>Legger til eller fjerner random:
+                    <button style="margin-left: 20px;" onclick="leggTilRandomFrukt()">+ random frukt</button>
+                    <button style="margin-left: 20px;" onclick="leggTilRandomExoticFrukt()">+ random exotic frukt</button>
+                    <button style="margin-left: 20px;" onclick="fjernRandomFrukt()">Fjern random frukt</button>
+                    </div>
+                    <br />
+                    <div style="word-spacing: 10px; font-size: 200%;">${fruktliste.join(', ')}</div>
+                    `;
         }
 
-        function leggTilRandomFrukt() {
-            const randomIndex = Math.floor(Math.random() * fruktliste.length);
-            const randomFruit = fruktliste[randomIndex];
-            fruktliste.push(randomFruit);
+        // Controller
+
+        // Legger til "eple" som første frukt i listen med (.unshift)
+        function leggTilFørsteEple() {
+            fruktliste.unshift("eple");
             updateFruit();
         }
 
-        function leggTilRandomExoticFrukt() {
-            let randomExoticFruit = ["ananas", "blood orange", "dragon fruit", "durian", "star fruit"];
-            const randomIndex = Math.floor(Math.random() * randomExoticFruit.length);
-            const randomFruit = randomExoticFruit[randomIndex];
-            fruktliste.push(randomFruit);
-            updateFruit();
-        }
-
-        function fjernRandomFrukt() {
-            const randomIndex = Math.floor(Math.random() * fruktliste.length);
-            fruktliste.splice(randomIndex, 1);
-            updateFruit();
-        }
-
+        // Legger til "drue" som siste frukt i listen med (.push)
         function leggTilDrue() {
             fruktliste.push("drue");
             updateFruit();
         }
 
+        // Legger til "eple" som siste frukt i listen med (.push)
+        function leggTilEple() {
+            fruktliste.push("eple");
+            updateFruit();
+        }
+
+        // Fjerner første "eple" den finner med (.splice)
+        function fjernEple() {
+            let epleIndex = fruktliste.indexOf("eple");
+            if (epleIndex !== -1) {
+                fruktliste.splice(epleIndex, 1);
+                updateFruit();
+            }
+        }
+
+        // Fjerner første "drue" den finner med (.splice)
         function fjernDrue() {
+            let drueIndex = fruktliste.indexOf("drue");
+            if (drueIndex !== -1) {
+                fruktliste.splice(drueIndex, 1);
+                updateFruit();
+            }
+        }
+
+        // Fjerner første "drue" HVIS "eple" er skrevet opp med (.includes) og (.splice)
+        function fjernDrueHvisEpleFinns() {
             if (fruktliste.includes("eple")) {
                 let drueIndex = fruktliste.indexOf("drue");
                 if (drueIndex !== -1) {
@@ -74,38 +95,49 @@
             }
         }
 
-        function leggTilFørsteEple() {
-            fruktliste.unshift("eple");
-            updateFruit();
-        }
- 
-        function leggTilEple() {
-            fruktliste.push("eple");
-            updateFruit();
-        }
-
-        function fjernEple() {
-            let epleIndex = fruktliste.indexOf("eple");
-            if (epleIndex !== -1) {
-                fruktliste.splice(epleIndex, 1);
-                updateFruit();
-            }
-        }
-
+        // Fjerner første frukten i listen med (.shift)
         function fjernFørsteFrukt() {
             fruktliste.shift();
             updateFruit();
         }
+        
+        // Fjerner siste frukten i listen med (.pop)
+        function fjernSisteFrukt() {
+            fruktliste.pop();
+            updateFruit();
+        }
 
+        // Fjerner alt som står med å sette tom liste [];
         function fjernAllFrukt() {
             fruktliste = [];
             updateFruit();
         }
 
-        function fjernSisteFrukt() {
-            fruktliste.pop();
+        // Legger til en tilfeldig frukt til slutten av listen med (.push) og (Math.floor/Math.random())
+        function leggTilRandomFrukt() {
+            const randomIndex = Math.floor(Math.random() * fruktliste.length);
+            const randomFruit = fruktliste[randomIndex];
+            fruktliste.push(randomFruit);
             updateFruit();
         }
+
+        /* Legger til en tilfeldig eksotisk frukt valgt fra (randomExoticFruit) til slutten av listen (fruktliste) 
+        med (.push) og (Math.floor/Math.random()) */
+        function leggTilRandomExoticFrukt() {
+            let randomExoticFruit = ["ananas", "blood orange", "dragon fruit", "durian", "star fruit"];
+            const randomIndex = Math.floor(Math.random() * randomExoticFruit.length);
+            const randomFruit = randomExoticFruit[randomIndex];
+            fruktliste.push(randomFruit);
+            updateFruit();
+        }
+
+        // Fjerner en tilfeldig frukt i listen (fruktliste) med (.splice) og (Math.floor/Math.random())
+        function fjernRandomFrukt() {
+            const randomIndex = Math.floor(Math.random() * fruktliste.length);
+            fruktliste.splice(randomIndex, 1);
+            updateFruit();
+        }
+
 
     </script>
 </body>
