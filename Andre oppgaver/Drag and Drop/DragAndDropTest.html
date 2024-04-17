@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" href="https://blogs.articulate.com/rapid-elearning/wp-content/uploads/sites/7/2016/07/drag-drop-examples.png">
+    <style>
+        body {
+            margin: 0;
+            background-color: black;
+        }
+
+        .container {
+            background-color: black;
+            padding: 1rem;
+            margin-top: 1rem;
+        }
+
+        .draggable {
+            background-color: white;
+            border: 5px solid lightblue;
+            cursor: move;
+        }
+
+        .draggable.dragging {
+            opacity: 0.5;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p class="draggable" draggable="true"><img src="https://blogs.articulate.com/rapid-elearning/wp-content/uploads/sites/7/2016/07/drag-drop-examples.png"></p>
+        <p class="draggable" draggable="true"><img src="smiley.jpg"></p>
+    </div>
+    <div class="container">
+        <p class="draggable" draggable="true"><img style="width: 12%;" src="https://scontent.fsvg2-1.fna.fbcdn.net/v/t39.30808-6/420202508_10161306514415218_792640158444134707_n.jpg?stp=dst-jpg_fr_q85&_nc_cat=108&ccb=1-7&_nc_sid=5f2048&_nc_ohc=kc2txoEVPvkAb5275SP&_nc_ht=scontent.fsvg2-1.fna&oh=00_AfDqQTAVdkOvM7UWPKgW6WhIfyNfYQhlpONmIRX65p9cWQ&oe=661F03C4"></p>
+        <p class="draggable" draggable="true"><img style="width: 12%;" src="https://scontent.fsvg2-1.fna.fbcdn.net/v/t39.30808-6/434572424_10161305506950218_1467745713423858567_n.jpg?stp=dst-jpg_p480x480&_nc_cat=102&ccb=1-7&_nc_sid=5f2048&_nc_ohc=AyRFhEWHzDUAb4hNHBH&_nc_ht=scontent.fsvg2-1.fna&oh=00_AfAJ46QzdyQvlzFoqUYyJcsFYo7Bq-Xxv-y3D9-k5A9zmQ&oe=661EF3D7"></p>
+    </div>
+
+    <script>
+    const draggables = document.querySelectorAll('.draggable');
+    const containers = document.querySelectorAll('.container');
+
+    draggables.forEach(draggable => {
+        draggable.addEventListener('dragstart', () => {
+            draggable.classList.add('dragging')
+        })
+
+        draggable.addEventListener('dragend', () => {
+            draggable.classList.remove('dragging')
+        })
+    })
+
+    containers.forEach(container => {
+        container.addEventListener('dragover', e => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(container, e.clientY)
+            const draggable = document.querySelector('.dragging')
+            if (afterElement == null) {
+                container.appendChild(draggable)
+            } else {
+                container.insertBefore(draggable, afterElement)
+            }
+        })
+    })
+
+    function getDragAfterElement(container, y) {
+        const draggableElements = [...container.querySelectorAll('.draggable:not(.dragging)')]
+
+        return draggableElements.reduce((closest, child) => {
+            const box = child.getBoundingClientRect()
+            const offset = y - box.top - box.height / 2
+            if (offset < 0 && offset > closest.offset) {
+                return { offset: offset, element: child }
+            } else {
+                return closest;
+            }
+        }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+</script>
+</body>
+
+</html>
