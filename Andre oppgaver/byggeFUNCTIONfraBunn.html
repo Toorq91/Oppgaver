@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        // model
+        const questions = ['Hvem?', 'Hva?', 'Hvor'];
+        const numbers = [-1, -7, -14, -3];
+
+        // view
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+                <h1>Min app</h1>
+                <ol>
+                    ${createQuestionsHtml()}
+                </ol>  
+                <ul>
+                    ${createNumbersHtml()}
+                </ul>    
+                Summen av tallene er: ${sumNumbers()}  <br/>
+                Produktet av tallene er: ${multiplyNumbers()} <br/>
+                Det største tallet er: ${getMaxNumber()} <br/>
+            `;
+        }
+
+        function getMaxNumber() {
+            let maxNumber = null;
+            for (let number of numbers) {
+                // hvis det tallet vi ser på nå er større enn maxNumber, så bytter 
+                // maxNumber til å være dette tallet
+                if (maxNumber == null | number > maxNumber) {
+                    maxNumber = number;
+                }
+            }
+            return maxNumber;
+        }
+
+        function getMaxNumberB() {
+            let maxNumber = numbers[0];
+            for (let number of numbers) {
+                // hvis det tallet vi ser på nå er større enn maxNumber, så bytter 
+                // maxNumber til å være dette tallet
+                if (number > maxNumber) {
+                    maxNumber = number;
+                }
+            }
+            return maxNumber;
+        }
+
+
+        function multiplyNumbers() {
+            let sum = 1;
+            for (let number of numbers) {
+                sum *= number;
+            }
+            return sum;
+        }
+
+        function sumNumbers() {
+            let sum = 0;
+            for (let number of numbers) {
+                sum += number;
+            }
+            return sum;
+        }
+
+        function createNumbersHtml() {
+            let html = '';
+            for (let number of numbers) {
+                html += `<li>${number}</li>`;
+            }
+            return html;
+        }
+
+        function createQuestionsHtml() {
+            let html = '';
+            for (let question of questions) {
+                html += `<li>${question}</li>`;
+            }
+            return html;
+        }
+
+        /*
+            text = 'Terje'
+            'Terje'
+            text.includes('e')
+            true
+            text = null
+            null
+            text.includes('e')
+            VM79:1 Uncaught TypeError: Cannot read properties of null (reading 'includes')
+                at <anonymous>:1:6
+            (anonymous) @ VM79:1
+            text != null & text.includes('e')
+            VM123:1 Uncaught TypeError: Cannot read properties of null (reading 'includes')
+                at <anonymous>:1:21
+            (anonymous) @ VM123:1
+            text != null && text.includes('e')
+            false            
+        */
+
+    </script>
+</body>
+
+</html>
