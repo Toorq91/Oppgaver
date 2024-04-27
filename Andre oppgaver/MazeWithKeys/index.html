@@ -47,6 +47,16 @@
             align-items: center;
             justify-content: center;
         }
+
+        .button {
+            font-size: 200%;
+            margin-left: 40px;
+        }
+
+        .print {
+            margin-top: 10px;
+            font-size: 150%
+        }
     </style>
 </head>
 
@@ -57,8 +67,32 @@
 
     <script>
         // model
-        let smileyPosition = 0;
+        const model = {
+            smileyPosition: 0,
+            app: {
+                page: null,
+                header: '',
+                winmessage: 'Congratulation you won 😄 Click here to get to the next level',
+            },
 
+            inventory: {
+                orange: false,
+                red: false,
+                green: false,
+                purple: false,
+                blue: false,
+                finish: false,
+            },
+
+            rooms: [
+                { id: 0, key: 'orange', },
+                { id: 1, key: 'red', },
+                { id: 2, key: 'green', },
+                { id: 3, key: 'purple', },
+                { id: 4, key: 'blue', },
+                { id: 5, key: 'finish', },
+            ]
+        }
 
         // view
         updateview();
@@ -66,32 +100,43 @@
         function updateview() {
             document.getElementById('app').innerHTML = /*HTML*/`
             <div class="board">
-                <div style="color: black; background-color: white;" class="square">${getContent(0)}<img style="width: 20%;" src="img/orangekey.webp"/></div>
-                <div style="color: purple; background-color: purple;" class="square">${getContent(1)}<img style="width: 20%;" src="img/redkey.webp"/></div>
-                <div style="color: blue; background-color: blue;" class="square">${getContent(2)}<img style="width: 20%;" src="img/greenkey.webp"/></div>
-                <div style="color: orange; background-color: orange;" class="square">${getContent(3)}<img style="width: 20%;" src="img/purplekey.webp"/></div>
-                <div style="color: red; background-color: red;" class="square">${getContent(4)}<img style="width: 20%;" src="img/bluekey.webp"/></div>
+                <div style="color: black; background-color: white;" class="square">${getContent(0)}${getKey('orange')}</div>
+                <div style="color: purple; background-color: purple;" class="square">${getContent(1)}${getKey('red')}</div>
+                <div style="color: blue; background-color: blue;" class="square">${getContent(2)}${getKey('green')}</div>
+                <div style="color: orange; background-color: orange;" class="square">${getContent(3)}${getKey('purple')}</div>
+                <div style="color: red; background-color: red;" class="square">${getContent(4)}${getKey('blue')}</div>
                 <div style="color: green; background-color: green;" class="square">${getContent(5)}<img style="width: 20%;" src="img/finish.webp"/></div>
             </div>
-            <button style="margin-top: 10px; font-size: 150%" onclick="printPage()">Print</button>
+            <button class="print" onclick="printPage()">Print</button>
             <div class="buttons">
-                <button style="margin-bottom: 5px; font-size: 200%" ${getDisabled(-3)} onclick="moveSmiley(-3)">▲</button>
+                <button class="button"${getDisabled(-3)} onclick="moveSmiley(-3)">▲</button>
                 <div>
-                    <button style="margin-right: 20px; font-size: 200%" ${getDisabled(-1)} onclick="moveSmiley(-1)">◀</button>
-                    <button style="margin-left: 20px; font-size: 200%" ${getDisabled(1)} onclick="moveSmiley(1)">▶</button>
+                    <button class="button"${getDisabled(-1)} onclick="moveSmiley(-1)">◀</button>
+                    <button class="button"${getDisabled(1)} onclick="moveSmiley(1)">▶</button>
                     </div>
-                    <button style="margin-top: 5px; font-size: 200%" ${getDisabled(3)} onclick="moveSmiley(3)">▼</button>
+                    <button class="button"${getDisabled(3)} onclick="moveSmiley(3)">▼</button>
             </div>
             `;
         }
 
-        function printPage() {
-            window.print();
-            updateview();
+        function checkForKey() {
+            const currentRoom = model.rooms[model.smileyPosition];
+            if (currentRoom.key) {
+                model.inventory[currentRoom.key] = true;
+                currentRoom.key = null;
+            }
+        }
+
+        function getKey(color) {
+            if (model.inventory[color] || (model.smileyPosition !== 0 && color === 'orange')) {
+                return '';
+            } else {
+                return `<img style="width: 20%;" src="img/${color}key.webp"/>`;
+            }
         }
 
         function getContent(position) {
-            if (smileyPosition == position) {
+            if (model.smileyPosition == position) {
                 return '😲'
             } else {
                 return '';
@@ -99,22 +144,42 @@
         }
 
         function getDisabled(change) {
-            if (smileyPosition == 0 && change == -1) return 'disabled';
-            if (smileyPosition == 0 && change == -3) return 'disabled';
-            if (smileyPosition == 1 && change == -3) return 'disabled';
-            if (smileyPosition == 2 && change == -3) return 'disabled';
-            if (smileyPosition == 2 && change ==  1) return 'disabled';
-            if (smileyPosition == 3 && change == -1) return 'disabled';
-            if (smileyPosition == 3 && change ==  3) return 'disabled';
-            if (smileyPosition == 4 && change ==  3) return 'disabled';
-            if (smileyPosition == 5 && change ==  1) return 'disabled';
-            if (smileyPosition == 5 && change ==  3) return 'disabled';
-            return '';
+            const currentRoom = model.rooms[model.smileyPosition];
+            const targetRoom = model.rooms[model.smileyPosition + change];
+
+            if (!targetRoom) return 'disabled'; 
+            if (model.smileyPosition === 1 && model.inventory['blue'] == '') {
+                if (change === -1 || change === 3) return ''; 
+                else return 'disabled'; 
+            }
+            if (model.smileyPosition === 4) {
+                if (change === -1 || change === -3) return '';
+                else return 'disabled'; 
+            }
+            if (model.smileyPosition === 2) {
+                if (change === -1 || change === 3) return ''; 
+                else return 'disabled'; 
+            }
+            if (model.smileyPosition === 5) return '';
+            if (targetRoom.id === 0 && change === -3) return ''; 
+            if (targetRoom.id === 3 && change === 3) return ''; 
+            if (model.smileyPosition === 1 && model.inventory['purple'] === true && change ===-1) return'';
+            if (model.smileyPosition === 4 && model.inventory['green'] === true && change ===1) return'';
+            if (model.inventory[targetRoom.key] || (model.inventory['orange'] && change !== -1)) return '';
+
+            return 'disabled'; 
         }
+       
 
         // controller
         function moveSmiley(change) {
-            smileyPosition += change;
+            model.smileyPosition += change;
+            checkForKey();
+            updateview();
+        }
+
+        function printPage() {
+            window.print();
             updateview();
         }
 
