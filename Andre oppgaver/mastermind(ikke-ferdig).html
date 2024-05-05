@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .answer {
+            display: grid;
+            border: 2px solid black;
+            background-color: burlywood;
+            grid-template-columns: repeat(4, 50px);
+            width: 300px;
+            gap: 5px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border: 2px solid black;
+            align-items: center;
+            background-color: burlywood;
+            gap: 10px;
+            width: 298px;
+        }
+        .guesses {
+            display: grid;
+            border: 2px solid black;
+            /* background-color: burlywood; */
+            grid-template-columns: repeat(4, 50px);
+            grid-template-rows: repeat(12, 50px);
+            width: 300px;
+
+        }
+
+        .circle {
+            border-radius: 50%;
+            border: 2px solid black;
+            background-color: black;
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+
+        updateView();
+
+        function updateView() {
+            document.getElementById('app').innerHTML = /*HTML*/`
+            <div class="answer">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                </div>
+            <div class="guesses">
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+                <div class="row">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                </div>
+            </div>
+            `;
+        }
+
+
+    </script>
+</body>
+
+</html>
