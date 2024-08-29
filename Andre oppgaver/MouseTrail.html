@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continuous Cursor Trail</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: red;
+            /* You can change the color */
+            pointer-events: none;
+            /* So the dots don't interfere with mouse events */
+        }
+
+        .trail {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgb(31, 19, 209);
+            /* You can change the color */
+            pointer-events: none;
+            /* So the trail doesn't interfere with mouse events */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script>
+        let isDrawing = false; // Flag to indicate if drawing is in progress
+        let lastX, lastY; // Variables to store last mouse position
+
+        // Function to draw a dot
+        function drawDot(x, y) {
+            let dot = document.createElement('div'); // Create a dot element
+            dot.className = "dot"; // Apply the dot class
+            dot.style.left = (x - 5) + "px"; // Set dot's position
+            dot.style.top = (y - 5) + "px";
+            document.body.appendChild(dot); // Append dot to the body
+
+            // Set timeout to fade out dot after 1 second
+            setTimeout(() => {
+                dot.remove(); // Remove the dot from the DOM
+            }, 200); // After 0.2 seconds
+        }
+
+        // Function to draw a line segment 
+        function drawLine(x1, y1, x2, y2) {
+            let line = document.createElement('div'); // Create a line element
+            line.className = "trail"; // Apply the trail class
+            line.style.left = x1 + "px"; // Set line's starting position
+            line.style.top = y1 + "px";
+            let length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2); // Calculate line length
+            line.style.width = length + "px"; // Set line's length
+            line.style.transformOrigin = "left top"; // Set transform origin to start position
+            let angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI; // Calculate line angle
+            line.style.transform = "rotate(" + angle + "deg)"; // Rotate the line
+            document.body.appendChild(line); // Append line to the body
+        }
+
+        // Function to update cursor position
+        function updateCursor(event) {
+            if (isDrawing) {
+                requestAnimationFrame(() => {
+                    let currentX = event.clientX;
+                    let currentY = event.clientY;
+                    drawLine(lastX, lastY, currentX, currentY); // Draw a line segment
+                    lastX = currentX;
+                    lastY = currentY;
+                });
+            } else {
+                drawDot(event.clientX, event.clientY); // Draw a dot if not drawing
+            }
+        }
+
+        // Listen for mousedown event to start drawing
+        document.addEventListener('mousedown', function (event) {
+            isDrawing = true;
+            lastX = event.clientX;
+            lastY = event.clientY;
+        });
+
+        // Listen for mouseup event to stop drawing
+        document.addEventListener('mouseup', function () {
+            isDrawing = false;
+            let trails = document.querySelectorAll('.trail');
+            trails.forEach(trail => trail.remove()); // Remove all lines
+        });
+
+        // Listen for mousemove event to update cursor position
+        document.addEventListener('mousemove', updateCursor);
+    </script>
+</body>
+
+</html>
